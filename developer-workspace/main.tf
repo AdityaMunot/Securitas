@@ -8,13 +8,6 @@ provider "vault" {
     address         = var.vault_address
     token           = var.developer_token
     skip_tls_verify = "true"
-    auth_login {
-        path = "auth/userpass/login/${var.login_username}"
-
-        parameters = {
-        password = var.login_password
-        }
-    }
 }
 
 data "vault_aws_access_credentials" "creds" {
