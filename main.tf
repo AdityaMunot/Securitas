@@ -33,6 +33,26 @@ module "vault_cluster" {
   ssh_key_name                         = var.ssh_key_name
 }
 
+resource "aws_iam_role_policy" "vault_iam_policy" {
+  name = "vault_iam"
+  role = module.vault_cluster.iam_role_id
+
+  policy = <<-EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": [
+          "iam:*"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      }
+    ]
+  }
+  EOF
+}
+
 module "consul_iam_policies_servers" {
   source = "github.com/hashicorp/terraform-aws-consul.git//modules/consul-iam-policies?ref=v0.7.4"
 
