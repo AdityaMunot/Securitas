@@ -4,7 +4,7 @@ The Developer is looking to safely provision infrastructure using Terraform with
 
 **Developer Vault Login Workflow:**
 
-The login generates the developer token which is validate for certain duration depending how administrator has developer role. By default in this sample it is 8hr.
+The login generates the developer token which is validate for certain duration depending how administrator has setup developer role. By default in this sample it is 8hr.
 
 ![developer_token](../asset/developer_token.png)
 
