@@ -34,3 +34,7 @@ Things to follow as developer:
 * Terraform - Used to provision the infrastructure
 * Vault - Secrets & identity management
 * Consul - Resilient backend/storage for vault
+
+## Author
+
+Managed by [Aditya Munot](https://github.com/AdityaMunot)
