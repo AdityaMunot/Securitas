@@ -5,13 +5,9 @@ terraform {
   }
 }
 
-provider "aws" {
-  profile = var.aws_profile
-}
-
 provider "vault" {
-  address         = ""
-  token           = ""
+  address         = var.VAULT_ADDR
+  token           = var.VAULT_TOKEN
   skip_tls_verify = "true"
 }
 
@@ -34,7 +30,8 @@ resource "vault_auth_backend" "userpass" {
   type = "userpass"
 
   tune {
-    max_lease_ttl = "28800s"
+    default_lease_ttl = var.userpass_default_lease_ttl
+    max_lease_ttl = var.userpass_max_lease_ttl
   }
 }
 
@@ -64,8 +61,8 @@ EOT
 resource "vault_aws_secret_backend" "aws" {
   path = "${var.name}-path"
 
-  default_lease_ttl_seconds = "120"
-  max_lease_ttl_seconds     = "240"
+  default_lease_ttl_seconds = var.aws_default_lease_ttl_seconds
+  max_lease_ttl_seconds     = var.aws_max_lease_ttl_seconds
 }
 
 resource "vault_aws_secret_backend_role" "developer" {
