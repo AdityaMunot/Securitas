@@ -3,7 +3,7 @@ A Dynamic and Infra-scaling secrets manager.  Scalable system with secrets manag
 
 ## Securitas Architecture
 
-![securitas_architecture](asset\securitas_architecture.png)
+![securitas_architecture](asset/securitas_architecture.png)
 
 ## Getting Started
 
